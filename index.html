@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Miran vs Narim :v</title>
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <nav class="nav" id="nav">
+      <h1>Miran vs Narim :v</h1>
+    </nav>
+    <div id="app">
+      <div class="choosing-level" v-if="stage === 'choosing-level'">
+        <div class="choosing-level-container box">
+          <h2>Pilih level anda!</h2>
+          <div class="level-range">
+            <input type="range" v-model="level" min="1" max="10" />
+            <p>{{level}}</p>
+          </div>
+          <button @click="startGame()">Mulai</button>
+        </div>
+      </div>
+      <div class="game" v-else-if="stage === 'game-start'">
+        <div class="medkit-info">
+          <p>Level: {{level}}</p>
+          <p>Pengisi Darah: {{medkit}}</p>
+        </div>
+        <div class="health box">
+          <h2>Darahnya Narim</h2>
+          <div class="health-bar">
+            <span>{{narimHealth}}%</span>
+            <div class="health-bar-value" :style="narimHealthBar"></div>
+          </div>
+        </div>
+        <div class="health box">
+          <h2>Darahnya Miran</h2>
+          <div class="health-bar">
+            <span>{{miranHealth}}%</span>
+            <div class="health-bar-value" :style="miranHealthBar"></div>
+          </div>
+        </div>
+        <div class="skills box" v-if="!isGameOver">
+          <div class="skills-container">
+            <button @click="miranAttack()">Serang</button>
+            <button
+              @click="miranSpecialAttack()"
+              :disabled="attackLaunch % 3 !== 0"
+            >
+              Kekuatan penuh
+            </button>
+            <button @click="heal()" :disabled="medkit <= 0">
+              Mengisi darah
+            </button>
+            <button @click="surrenderHandle()">Menyerah</button>
+          </div>
+        </div>
+        <div class="game-over" v-else>
+          <div class="game-over-container box">
+            <p v-if="winner === 'narim'">Anda telah kalah, Miran😼</p>
+            <p v-else-if="winner === 'miran'">Anda telah menang! gud lah😎</p>
+            <p v-else>Pertandingan berakhir seri!</p>
+            <button @click="chooseLevel()">Mulai ulang</button>
+          </div>
+        </div>
+        <div class="surrender-alert" v-show="isSurrender">
+          <div class="surrender-alert-container box">
+            <p>Jangan menyerah Miran🦄</p>
+            <button @click="surrenderHandle()">Ok</button>
+          </div>
+        </div>
+      </div>
+      <section class="info box" v-show="isInfoVisible">
+        <h5>Cara bermain:</h5>
+        <ul class="info-list">
+          <li>1. Pilih level antara 1-10</li>
+          <li>
+            2. Anda akan diberi kesempatan untuk mengisi darah sebanyak
+            <strong>{{medkit}}</strong> kali
+          </li>
+          <li>3. Klik <strong>Serang</strong> untuk menyerang</li>
+          <li>
+            4. Tekan <strong>Kekuatan Penuh</strong> untuk mengerahkan seluruh
+            power
+          </li>
+          <li>5. Isilah darah anda bila saatnya tiba</li>
+          <li>
+            6. Anda akan mendapatkan 1 buah
+            <strong>Pengisi Darah</strong> setiap kali menang dalam pertarungan
+          </li>
+          <li>
+            7. Damage yang diterima adalah random sesuai level yang anda pilih
+          </li>
+        </ul>
+        <button @click="setInfoVisible()">Baiklah</button>
+      </section>
+    </div>
+  </body>
+</html>

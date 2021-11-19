@@ -1,0 +1,414 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+
+body {
+  background-color: #e4e4e7;
+  font-family: "M PLUS 1", sans-serif;
+}
+
+@media (min-width: 0) and (max-width: 412px) {
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #2f343b;
+    height: 10vh;
+  }
+  nav h1 {
+    font-size: 2rem;
+  }
+
+  div#app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  div#app .choosing-level {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 100vw;
+  }
+  div#app .choosing-level .choosing-level-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    height: 200px;
+    padding: 15px;
+  }
+  div#app .choosing-level .choosing-level-container .level-range {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    margin-top: 12px;
+    margin-bottom: 16px;
+  }
+  div#app .choosing-level .choosing-level-container .level-range p {
+    background-color: #e4e4e7;
+    padding: 5px 12px;
+    font-weight: 600;
+  }
+  div#app .choosing-level .choosing-level-container button {
+    width: 80%;
+  }
+  div#app .medkit-info {
+    margin-top: 25px;
+  }
+  div#app .medkit-info p {
+    text-align: right;
+  }
+  div#app .health {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 15px auto;
+    height: 20%;
+    width: 80vw;
+    padding: 5px;
+  }
+  div#app .health h2,
+div#app .health .health-bar {
+    margin: 8px 0;
+  }
+  div#app .health h2 {
+    font-size: 1.2rem;
+  }
+  div#app .health .health-bar {
+    position: relative;
+    border: 2px solid #2f343b;
+    border-radius: 5px;
+    width: 80%;
+    height: 40px;
+  }
+  div#app .health .health-bar span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+  div#app .health .health-bar .health-bar-value {
+    background-color: #7e827a;
+    width: 40%;
+    height: 100%;
+  }
+  div#app .skills {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    margin: 15px auto;
+    height: 40%;
+    padding: 25px 15px;
+  }
+  div#app .skills .skills-container {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  div#app .skills .skills-container button {
+    width: 90%;
+    margin: 8px;
+    padding: 5px;
+  }
+
+  .surrender-alert {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1928;
+    background-color: rgba(47, 52, 59, 0.5);
+  }
+  .surrender-alert .surrender-alert-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 200px;
+  }
+  .surrender-alert .surrender-alert-container p,
+.surrender-alert .surrender-alert-container button {
+    margin: 15px;
+  }
+  .surrender-alert .surrender-alert-container p {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .surrender-alert .surrender-alert-container button {
+    width: 60%;
+  }
+
+  .game-over {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .game-over .game-over-container {
+    width: 80vw;
+    text-align: center;
+    padding: 25px 0;
+    font-weight: 600;
+  }
+  .game-over .game-over-container p,
+.game-over .game-over-container button {
+    margin: 12px 0;
+  }
+  .game-over .game-over-container button {
+    width: 80%;
+  }
+
+  section.info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    padding: 25px;
+    z-index: 1997;
+  }
+  section.info h5 {
+    font-size: 1rem;
+  }
+  section.info .info-list {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    list-style: none;
+  }
+  section.info .info-list li {
+    margin-top: 5px;
+  }
+  section.info button {
+    width: 100%;
+    float: right;
+    margin-top: 40px;
+  }
+
+  .box {
+    background-color: #fff;
+    -webkit-box-shadow: 0px 2px 11px 0px rgba(47, 52, 59, 0.34);
+    box-shadow: 0px 2px 11px 0px rgba(47, 52, 59, 0.34);
+    border-radius: 5px;
+    max-width: 700px;
+  }
+}
+@media (min-width: 412px) {
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #2f343b;
+    height: 10vh;
+  }
+  nav h1 {
+    font-size: 2rem;
+  }
+
+  div#app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  div#app .choosing-level {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 100vw;
+  }
+  div#app .choosing-level .choosing-level-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    height: 200px;
+    padding: 15px;
+  }
+  div#app .choosing-level .choosing-level-container .level-range {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    margin-top: 12px;
+    margin-bottom: 16px;
+  }
+  div#app .choosing-level .choosing-level-container .level-range p {
+    background-color: #e4e4e7;
+    padding: 5px 12px;
+    font-weight: 600;
+  }
+  div#app .choosing-level .choosing-level-container button {
+    width: 80%;
+  }
+  div#app .medkit-info {
+    margin-top: 25px;
+  }
+  div#app .medkit-info p {
+    text-align: right;
+  }
+  div#app .health {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 15px auto;
+    height: 20%;
+    width: 100%;
+    padding: 15px;
+  }
+  div#app .health h2,
+div#app .health .health-bar {
+    margin: 8px 0;
+  }
+  div#app .health h2 {
+    font-size: 1.2rem;
+  }
+  div#app .health .health-bar {
+    position: relative;
+    border: 2px solid #2f343b;
+    border-radius: 5px;
+    width: 70%;
+    height: 40px;
+  }
+  div#app .health .health-bar span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+  }
+  div#app .health .health-bar .health-bar-value {
+    background-color: #7e827a;
+    width: 40%;
+    height: 100%;
+  }
+  div#app .skills {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 15px auto;
+    height: 40%;
+    padding: 25px 15px;
+  }
+  div#app .skills .skills-container {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  div#app .skills .skills-container button {
+    width: 10rem;
+    margin: 8px;
+  }
+
+  .surrender-alert {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1928;
+    background-color: rgba(47, 52, 59, 0.5);
+  }
+  .surrender-alert .surrender-alert-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
+    height: 200px;
+  }
+  .surrender-alert .surrender-alert-container p {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .surrender-alert .surrender-alert-container button {
+    width: 90%;
+  }
+
+  .game-over {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .game-over .game-over-container {
+    width: 80vw;
+    text-align: center;
+    padding: 25px 0;
+    font-weight: 600;
+  }
+  .game-over .game-over-container p,
+.game-over .game-over-container button {
+    margin: 12px 0;
+  }
+  .game-over .game-over-container button {
+    width: 80%;
+  }
+
+  section.info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    padding: 25px;
+    z-index: 1997;
+  }
+  section.info h5 {
+    font-size: 1rem;
+  }
+  section.info .info-list {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    list-style: none;
+  }
+  section.info .info-list li {
+    margin-top: 5px;
+  }
+  section.info button {
+    width: 100%;
+    float: right;
+    margin-top: 40px;
+  }
+
+  .box {
+    background-color: #fff;
+    -webkit-box-shadow: 0px 2px 11px 0px rgba(47, 52, 59, 0.34);
+    box-shadow: 0px 2px 11px 0px rgba(47, 52, 59, 0.34);
+    border-radius: 5px;
+    max-width: 700px;
+  }
+}
+button {
+  background-color: #e3cda4;
+  border: 2px solid #c77966;
+  font-family: "M PLUS 1", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  height: 3.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=styles.css.map */

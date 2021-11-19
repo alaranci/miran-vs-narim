@@ -1,0 +1,452 @@
+$red: #703030;
+$black: #2f343b;
+$dark-light-green: #7e827a;
+$light-yellow: #e3cda4;
+$light-pink: #c77966;
+$white: #fff;
+$dreary-dark: #27272a;
+$gray: #e4e4e7;
+$font-family: "M PLUS 1", sans-serif;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-center-column {
+  @include flex-center();
+  flex-direction: column;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+
+body {
+  background-color: $gray;
+  font-family: $font-family;
+}
+
+@media (min-width: 0) and (max-width: 412px) {
+  nav {
+    @include flex-center();
+    color: $white;
+    background-color: $black;
+    height: 10vh;
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  div#app {
+    @include flex-center-column();
+
+    .choosing-level {
+      @include flex-center();
+      height: 80vh;
+      width: 100vw;
+
+      .choosing-level-container {
+        @include flex-center-column();
+        width: 80%;
+        height: 200px;
+        padding: 15px;
+
+        .level-range {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          width: 80%;
+          margin-top: 12px;
+          margin-bottom: 16px;
+
+          p {
+            background-color: $gray;
+            padding: 5px 12px;
+            font-weight: 600;
+          }
+        }
+
+        button {
+          width: 80%;
+        }
+      }
+    }
+
+    .medkit-info {
+      margin-top: 25px;
+
+      p {
+        text-align: right;
+      }
+    }
+
+    .health {
+      @include flex-center-column();
+      margin: 15px auto;
+      height: 20%;
+      width: 80vw;
+      padding: 5px;
+
+      h2,
+      .health-bar {
+        margin: 8px 0;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      .health-bar {
+        position: relative;
+        border: 2px solid $black;
+        border-radius: 5px;
+        width: 80%;
+        height: 40px;
+
+        span {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-weight: 600;
+          font-size: 0.8rem;
+        }
+
+        .health-bar-value {
+          background-color: $dark-light-green;
+          width: 40%;
+          height: 100%;
+        }
+      }
+    }
+
+    .skills {
+      @include flex-center();
+      width: 80vw;
+      margin: 15px auto;
+      height: 40%;
+      padding: 25px 15px;
+
+      .skills-container {
+        display: grid;
+        grid-template-columns: auto auto;
+
+        button {
+          width: 90%;
+          margin: 8px;
+          padding: 5px;
+        }
+      }
+    }
+  }
+
+  .surrender-alert {
+    @include flex-center();
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1928;
+    background-color: rgba(47, 52, 59, 0.5);
+
+    .surrender-alert-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      height: 200px;
+
+      p,
+      button {
+        margin: 15px;
+      }
+
+      p {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      button {
+        width: 60%;
+      }
+    }
+  }
+
+  .game-over {
+    @include flex-center();
+
+    .game-over-container {
+      width: 80vw;
+      text-align: center;
+      padding: 25px 0;
+      font-weight: 600;
+
+      p,
+      button {
+        margin: 12px 0;
+      }
+
+      button {
+        width: 80%;
+      }
+    }
+  }
+
+  section.info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    padding: 25px;
+    z-index: 1997;
+
+    h5 {
+      font-size: 1rem;
+    }
+
+    .info-list {
+      margin-top: 15px;
+      font-size: 0.8rem;
+      list-style: none;
+
+      li {
+        margin-top: 5px;
+      }
+    }
+
+    button {
+      width: 100%;
+      float: right;
+      margin-top: 40px;
+    }
+  }
+
+  .box {
+    background-color: $white;
+    -webkit-box-shadow: 0px 2px 11px 0px rgba(47, 52, 59, 0.34);
+    box-shadow: 0px 2px 11px 0px rgba(47, 52, 59, 0.34);
+    border-radius: 5px;
+    max-width: 700px;
+  }
+}
+
+@media (min-width: 412px) {
+  nav {
+    @include flex-center();
+    color: $white;
+    background-color: $black;
+    height: 10vh;
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  div#app {
+    @include flex-center-column();
+
+    .choosing-level {
+      @include flex-center();
+      height: 80vh;
+      width: 100vw;
+
+      .choosing-level-container {
+        @include flex-center-column();
+        width: 80%;
+        height: 200px;
+        padding: 15px;
+
+        .level-range {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          width: 80%;
+          margin-top: 12px;
+          margin-bottom: 16px;
+
+          p {
+            background-color: $gray;
+            padding: 5px 12px;
+            font-weight: 600;
+          }
+        }
+
+        button {
+          width: 80%;
+        }
+      }
+    }
+
+    .medkit-info {
+      margin-top: 25px;
+
+      p {
+        text-align: right;
+      }
+    }
+
+    .health {
+      @include flex-center-column();
+      margin: 15px auto;
+      height: 20%;
+      width: 100%;
+      padding: 15px;
+
+      h2,
+      .health-bar {
+        margin: 8px 0;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      .health-bar {
+        position: relative;
+        border: 2px solid $black;
+        border-radius: 5px;
+        width: 70%;
+        height: 40px;
+
+        span {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-weight: 600;
+        }
+
+        .health-bar-value {
+          background-color: $dark-light-green;
+          width: 40%;
+          height: 100%;
+        }
+      }
+    }
+
+    .skills {
+      @include flex-center();
+      width: 100%;
+      margin: 15px auto;
+      height: 40%;
+      padding: 25px 15px;
+
+      .skills-container {
+        display: grid;
+        grid-template-columns: auto auto;
+
+        button {
+          width: 10rem;
+          margin: 8px;
+        }
+      }
+    }
+  }
+
+  .surrender-alert {
+    @include flex-center();
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1928;
+    background-color: rgba(47, 52, 59, 0.5);
+
+    .surrender-alert-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 90%;
+      height: 200px;
+
+      p {
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      button {
+        width: 90%;
+      }
+    }
+  }
+
+  .game-over {
+    @include flex-center();
+
+    .game-over-container {
+      width: 80vw;
+      text-align: center;
+      padding: 25px 0;
+      font-weight: 600;
+
+      p,
+      button {
+        margin: 12px 0;
+      }
+
+      button {
+        width: 80%;
+      }
+    }
+  }
+
+  section.info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    padding: 25px;
+    z-index: 1997;
+
+    h5 {
+      font-size: 1rem;
+    }
+
+    .info-list {
+      margin-top: 15px;
+      font-size: 0.8rem;
+      list-style: none;
+
+      li {
+        margin-top: 5px;
+      }
+    }
+
+    button {
+      width: 100%;
+      float: right;
+      margin-top: 40px;
+    }
+  }
+
+  .box {
+    background-color: $white;
+    -webkit-box-shadow: 0px 2px 11px 0px rgba(47, 52, 59, 0.34);
+    box-shadow: 0px 2px 11px 0px rgba(47, 52, 59, 0.34);
+    border-radius: 5px;
+    max-width: 700px;
+  }
+}
+
+button {
+  background-color: $light-yellow;
+  border: 2px solid $light-pink;
+  font-family: $font-family;
+  font-size: 0.8rem;
+  font-weight: 600;
+  height: 3.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
